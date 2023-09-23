@@ -1,5 +1,8 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using ResumeBuilder.Persistence;
 using ResumeBuilder.Web;
 using Serilog;
 using System.Reflection;
@@ -16,14 +19,23 @@ builder.Host.UseSerilog((hostBuilderContext, loggerConnfiguration) =>
 });
 try
 {
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
+        ?? throw new InvalidOperationException("Connection String Not Found!");
+    var migrationsAssembly = Assembly.GetExecutingAssembly().FullName;
     // Add services to the container.
     builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
     builder.Host.ConfigureContainer<ContainerBuilder>(cb =>
     {
         cb.RegisterModule(new WebModule());
+        cb.RegisterModule(new PersistenceModule(connectionString, migrationsAssembly!));
     });
     builder.Services.AddControllersWithViews();
-
+    builder.Services.AddDbContext<ApplicationDbContext>(dbContextOptionsBuilder =>
+    {
+        dbContextOptionsBuilder.UseSqlServer(
+            connectionString,
+            sqlServerDbCtxtOpBuilder => sqlServerDbCtxtOpBuilder.MigrationsAssembly(migrationsAssembly));
+    });
     var app = builder.Build();
 
     // Configure the HTTP request pipeline.
