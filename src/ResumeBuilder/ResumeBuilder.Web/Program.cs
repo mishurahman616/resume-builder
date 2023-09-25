@@ -2,6 +2,7 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using ResumeBuilder.Infrastructure;
 using ResumeBuilder.Persistence;
 using ResumeBuilder.Web;
 using Serilog;
@@ -28,6 +29,7 @@ try
     {
         cb.RegisterModule(new WebModule());
         cb.RegisterModule(new PersistenceModule(connectionString, migrationsAssembly!));
+        cb.RegisterModule(new InfastructureModule());
     });
     builder.Services.AddControllersWithViews();
     builder.Services.AddDbContext<ApplicationDbContext>(dbContextOptionsBuilder =>
