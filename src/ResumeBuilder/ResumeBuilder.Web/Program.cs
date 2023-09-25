@@ -1,7 +1,6 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 using ResumeBuilder.Infrastructure;
 using ResumeBuilder.Persistence;
 using ResumeBuilder.Web;
