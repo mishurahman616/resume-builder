@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\CoverLetter\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ResumeBuilder.Domain\ResumeBuilder.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
