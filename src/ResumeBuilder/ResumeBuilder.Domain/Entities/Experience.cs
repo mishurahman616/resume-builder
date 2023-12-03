@@ -7,7 +7,7 @@
         public string Organization { get; set; }
         public DateTime JoiningDate { get; set; }
         public DateTime ResignationDate { get; set; }
-        public ICollection<string>? Responsibilities { get; set; }
+        public string Responsibilities { get; set; }
         public Guid ResumeId { get; set; }
         public Resume? Resume { get; set; }
     }

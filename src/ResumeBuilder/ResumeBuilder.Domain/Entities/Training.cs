@@ -11,5 +11,7 @@ namespace ResumeBuilder.Domain.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         public string Organization { get; set; }
+        public Guid ResumeId { get; set; }
+        public Resume Resume { get; set; }
     }
 }

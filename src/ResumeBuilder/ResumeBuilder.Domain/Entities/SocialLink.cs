@@ -12,5 +12,7 @@ namespace ResumeBuilder.Domain.Entities
         public string Name { get; set; }
         public string Url { get; set; }
         public string? IconUrl { get; set; }
+        public Guid ResumeId { get; set; }
+        public Resume Resume { get; set; }
     }
 }
