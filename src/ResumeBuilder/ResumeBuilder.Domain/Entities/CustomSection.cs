@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace ResumeBuilder.Domain.Entities
 {
-    public class CustomeSection:IEntity<Guid>
+    public class CustomSection:IEntity<Guid>
     {
         public Guid Id { get; set; }
-        public string? Name { get; set; }
+        public string SectionName { get; set; }
         public string? Position { get; set; }
         public string? Organization { get; set; }
         public DateTime? StartDate { get; set; }

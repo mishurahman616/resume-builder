@@ -1,6 +1,7 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using ResumeBuilder.Application;
 using ResumeBuilder.Infrastructure;
 using ResumeBuilder.Persistence;
 using ResumeBuilder.Web;
@@ -28,7 +29,8 @@ try
     {
         cb.RegisterModule(new WebModule());
         cb.RegisterModule(new PersistenceModule(connectionString, migrationsAssembly!));
-        cb.RegisterModule(new InfastructureModule());
+        cb.RegisterModule(new InfrastructureModule());
+        cb.RegisterModule(new ApplicationModule());
     });
     builder.Services.AddControllersWithViews();
     builder.Services.AddDbContext<ApplicationDbContext>(dbContextOptionsBuilder =>

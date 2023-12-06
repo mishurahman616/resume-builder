@@ -6,4 +6,17 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\CoverLetter\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ResumeBuilder.Domain\ResumeBuilder.Domain.csproj" />
+    <ProjectReference Include="..\ResumeBuilder.Persistence\ResumeBuilder.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>
