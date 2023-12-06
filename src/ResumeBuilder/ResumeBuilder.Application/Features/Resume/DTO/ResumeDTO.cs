@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ResumeBuilder.Application.Features.Resume.DTO
 {
-    public class ResumeListDTO
+    public class ResumeDTO
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

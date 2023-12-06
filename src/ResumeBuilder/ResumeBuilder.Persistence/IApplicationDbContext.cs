@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using ResumeBuilder.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +10,7 @@ namespace ResumeBuilder.Persistence
 {
     public interface IApplicationDbContext
     {
-
+         DbSet<Resume> Resumes { get; set; }
+         DbSet<Skill> Skills { get; set; }
     }
 }

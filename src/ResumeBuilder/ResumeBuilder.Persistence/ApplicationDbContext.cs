@@ -44,6 +44,7 @@ namespace ResumeBuilder.Persistence
             base.OnModelCreating(builder);
             
         }
-        protected DbSet<Resume> Resumes { get; set; }
+        public DbSet<Resume> Resumes { get; set; }
+        public DbSet<Skill> Skills { get; set; }
     }
 }

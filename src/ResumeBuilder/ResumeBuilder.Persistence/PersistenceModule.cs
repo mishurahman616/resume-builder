@@ -1,4 +1,6 @@
 ﻿using Autofac;
+using ResumeBuilder.Persistence.Features.Resume.Interfaces;
+using ResumeBuilder.Persistence.Features.Resume.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +28,8 @@ namespace ResumeBuilder.Persistence
                 .WithParameter("connectionString", _connectionString)
                 .WithParameter("migrationsAssemblyl", _migrationsAssembly)
                 .InstancePerLifetimeScope();
-
+            builder.RegisterType<SkillRepository>().As<ISkillRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<ResumeRespository>().As<IResumeRepository>().InstancePerLifetimeScope();
             base.Load(builder);
         }
     }

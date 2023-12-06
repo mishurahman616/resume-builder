@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace ResumeBuilder.Infrastructure
 {
-    public class InfastructureModule : Module
+    public class InfrastructureModule : Module
     {
+        public InfrastructureModule() { }
         protected override void Load(ContainerBuilder builder)
         {
             base.Load(builder);
